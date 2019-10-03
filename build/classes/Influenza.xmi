@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="Kendrick">
+	<KendrickModel name = "Influenza">
+		<attribute name = "status" values = "S,E,I,R" />
+		<attribute name = "species" values = "humans, birds" />
+		<attribute name = "zone" values = "1,2,3,4,5" />
+
+		<parameter name = "mu_humans" value = "0.000365" />
+		<parameter name = "mu_birds" value = "0.00137" />
+		<parameter name = "beta_humans_humans" value = "0" />
+		<parameter name = "beta_humans_birds" value = "0.21" />
+		<parameter name = "beta_birds_humans" value = "0" />
+		<parameter name = "beta_birds_birds" value = "0.42" />
+		<parameter name = "gamma_humans" value = "0.25" />
+		<parameter name = "gamma_birds" value = "0.233" />
+		<parameter name = "sigma_humans" value = "0.5" />
+		<parameter name = "sigma_birds" value = "0.67" />
+		<parameter name = "mu_reservoir2" value = "0.05" />
+		<parameter name = "nu" value = "0.00274" />
+		<parameter name = "rho_humans" value = "0.03" />
+		<parameter name = "rho_birds" value = "0.1" />
+
+		<parameter name="N_humans_1" value="500" />
+		<parameter name="N_humans_2" value="500" />
+		<parameter name="N_humans_3" value="500" />
+		<parameter name="N_humans_4" value="500" />
+		<parameter name="N_humans_5" value="500" />
+
+		<parameter name="N_birds_1" value="5000" />
+		<parameter name="N_birds_2" value="5000" />
+		<parameter name="N_birds_3" value="5000" />
+		<parameter name="N_birds_4" value="5000" />
+		<parameter name="N_birds_5" value="5000" />
+
+		<parameter name = "lambda_humans_1"
+			value = "beta_humans_humans*I_humans_1/N_humans_1 +
+				beta_humans_birds*I_birds_1/N_birds_1" />
+		<parameter name = "lambda_humans_2"
+			value = "beta_humans_humans*I_humans_2/N_humans_2 +
+				beta_humans_birds*I_birds_2/N_birds_2" />
+		<parameter name = "lambda_humans_3"
+			value = "beta_humans_humans*I_humans_3/N_humans_3 +
+				beta_humans_birds*I_birds_3/N_birds_3" />
+		<parameter name = "lambda_humans_4"
+			value = "beta_humans_humans*I_humans_4/N_humans_4 +
+				beta_humans_birds*I_birds_4/N_birds_4" />
+		<parameter name = "lambda_humans_5"
+			value = "beta_humans_humans*I_humans_5/N_humans_5 +
+				beta_humans_birds*I_birds_5/N_birds_5" />
+
+		<parameter name = "lambda_birds_1"
+			value = "beta_birds_humans*I_humans_1/N_humans_1 +
+				beta_birds_birds*I_birds_1/N_birds_1" />
+		<parameter name = "lambda_birds_2"
+			value = "beta_birds_humans*I_humans_2/N_humans_2 +
+				beta_birds_birds*I_birds_2/N_birds_2" />
+		<parameter name = "lambda_birds_3"
+			value = "beta_birds_humans*I_humans_3/N_humans_3 +
+				beta_birds_birds*I_birds_3/N_birds_3" />
+		<parameter name = "lambda_birds_4"
+			value = "beta_birds_humans*I_humans_4/N_humans_4 +
+				beta_birds_birds*I_birds_4/N_birds_4" />
+		<parameter name = "lambda_birds_5"
+			value = "beta_birds_humans*I_humans_5/N_humans_5 +
+				beta_birds_birds*I_birds_5/N_birds_5" />
+
+		<compartment name = "S_humans_1" value = "500" />
+		<compartment name = "S_humans_2" value = "500" />
+		<compartment name = "S_humans_3" value = "500" />
+		<compartment name = "S_humans_4" value = "500" />
+		<compartment name = "S_humans_5" value = "500" />
+
+		<compartment name = "S_birds_1" value = "4990" />
+		<compartment name = "S_birds_2" value = "5000" />
+		<compartment name = "S_birds_3" value = "5000" />
+		<compartment name = "S_birds_4" value = "5000" />
+		<compartment name = "S_birds_5" value = "5000" />
+
+		<compartment name = "I_humans_1" value = "0" />
+		<compartment name = "I_humans_2" value = "0" />
+		<compartment name = "I_humans_3" value = "0" />
+		<compartment name = "I_humans_4" value = "0" />
+		<compartment name = "I_humans_5" value = "0" />
+
+		<compartment name = "I_birds_1" value = "10" />
+		<compartment name = "I_birds_2" value = "0" />
+		<compartment name = "I_birds_3" value = "0" />
+		<compartment name = "I_birds_4" value = "0" />
+		<compartment name = "I_birds_5" value = "0" />
+
+		<compartment name = "E_humans_1" value = "0" />
+		<compartment name = "E_humans_2" value = "0" />
+		<compartment name = "E_humans_3" value = "0" />
+		<compartment name = "E_humans_4" value = "0" />
+		<compartment name = "E_humans_5" value = "0" />
+
+		<compartment name = "E_birds_1" value = "0" />
+		<compartment name = "E_birds_2" value = "0" />
+		<compartment name = "E_birds_3" value = "0" />
+		<compartment name = "E_birds_4" value = "0" />
+		<compartment name = "E_birds_5" value = "0" />
+
+		<compartment name = "R_humans_1" value = "0" />
+		<compartment name = "R_humans_2" value = "0" />
+		<compartment name = "R_humans_3" value = "0" />
+		<compartment name = "R_humans_4" value = "0" />
+		<compartment name = "R_humans_5" value = "0" />
+
+		<compartment name = "R_birds_1" value = "0" />
+		<compartment name = "R_birds_2" value = "0" />
+		<compartment name = "R_birds_3" value = "0" />
+		<compartment name = "R_birds_4" value = "0" />
+		<compartment name = "R_birds_5" value = "0" />
+
+		<transition fromStatus = "S_humans_1" toStatus = "E_humans_1" rate = "lambda_humans_1" />
+		<transition fromStatus = "S_humans_2" toStatus = "E_humans_2" rate = "lambda_humans_2" />
+		<transition fromStatus = "S_humans_3" toStatus = "E_humans_3" rate = "lambda_humans_3" />
+		<transition fromStatus = "S_humans_4" toStatus = "E_humans_4" rate = "lambda_humans_4" />
+		<transition fromStatus = "S_humans_5" toStatus = "E_humans_5" rate = "lambda_humans_5" />
+
+		<transition fromStatus = "S_birds_1" toStatus = "E_birds_1" rate = "lambda_birds_1" />
+		<transition fromStatus = "S_birds_2" toStatus = "E_birds_2" rate = "lambda_birds_2" />
+		<transition fromStatus = "S_birds_3" toStatus = "E_birds_3" rate = "lambda_birds_3" />
+		<transition fromStatus = "S_birds_4" toStatus = "E_birds_4" rate = "lambda_birds_4" />
+		<transition fromStatus = "S_birds_5" toStatus = "E_birds_5" rate = "lambda_birds_5" />
+
+		<transition fromStatus = "E_humans_1" toStatus = "I_humans_1" rate = "sigma_humans" />
+		<transition fromStatus = "E_humans_2" toStatus = "I_humans_2" rate = "sigma_humans" />
+		<transition fromStatus = "E_humans_3" toStatus = "I_humans_3" rate = "sigma_humans" />
+		<transition fromStatus = "E_humans_4" toStatus = "I_humans_4" rate = "sigma_humans" />
+		<transition fromStatus = "E_humans_5" toStatus = "I_humans_5" rate = "sigma_humans" />
+
+		<transition fromStatus = "E_birds_1" toStatus = "I_birds_1" rate = "sigma_birds" />
+		<transition fromStatus = "E_birds_2" toStatus = "I_birds_2" rate = "sigma_birds" />
+		<transition fromStatus = "E_birds_3" toStatus = "I_birds_3" rate = "sigma_birds" />
+		<transition fromStatus = "E_birds_4" toStatus = "I_birds_4" rate = "sigma_birds" />
+		<transition fromStatus = "E_birds_5" toStatus = "I_birds_5" rate = "sigma_birds" />
+
+		<transition fromStatus = "I_humans_1" toStatus = "R_humans_1" rate = "gamma_humans" />
+		<transition fromStatus = "I_humans_2" toStatus = "R_humans_2" rate = "gamma_humans" />
+		<transition fromStatus = "I_humans_3" toStatus = "R_humans_3" rate = "gamma_humans" />
+		<transition fromStatus = "I_humans_4" toStatus = "R_humans_4" rate = "gamma_humans" />
+		<transition fromStatus = "I_humans_5" toStatus = "R_humans_5" rate = "gamma_humans" />
+
+		<transition fromStatus = "I_birds_1" toStatus = "R_birds_1" rate = "gamma_birds" />
+		<transition fromStatus = "I_birds_2" toStatus = "R_birds_2" rate = "gamma_birds" />
+		<transition fromStatus = "I_birds_3" toStatus = "R_birds_3" rate = "gamma_birds" />
+		<transition fromStatus = "I_birds_4" toStatus = "R_birds_4" rate = "gamma_birds" />
+		<transition fromStatus = "I_birds_5" toStatus = "R_birds_5" rate = "gamma_birds" />
+
+		<transition fromStatus = "R_humans_1" toStatus = "S_humans_1" rate = "nu" />
+		<transition fromStatus = "R_humans_2" toStatus = "S_humans_2" rate = "nu" />
+		<transition fromStatus = "R_humans_3" toStatus = "S_humans_3" rate = "nu" />
+		<transition fromStatus = "R_humans_4" toStatus = "S_humans_4" rate = "nu" />
+		<transition fromStatus = "R_humans_5" toStatus = "S_humans_5" rate = "nu" />
+
+		<transition fromStatus = "R_birds_1" toStatus = "S_birds_1" rate = "nu" />
+		<transition fromStatus = "R_birds_2" toStatus = "S_birds_2" rate = "nu" />
+		<transition fromStatus = "R_birds_3" toStatus = "S_birds_3" rate = "nu" />
+		<transition fromStatus = "R_birds_4" toStatus = "S_birds_4" rate = "nu" />
+		<transition fromStatus = "R_birds_5" toStatus = "S_birds_5" rate = "nu" />
+
+		<transition fromStatus = "S_humans_1" toStatus = "Empty" rate = "mu_humans" />
+		<transition fromStatus = "S_humans_2" toStatus = "Empty" rate = "mu_humans" />
+		<transition fromStatus = "S_humans_3" toStatus = "Empty" rate = "mu_humans" />
+		<transition fromStatus = "S_humans_4" toStatus = "Empty" rate = "mu_humans" />
+		<transition fromStatus = "S_humans_5" toStatus = "Empty" rate = "mu_humans" />
+
+		<transition fromStatus = "S_birds_1" toStatus = "Empty" rate = "mu_birds" />
+		<transition fromStatus = "S_birds_2" toStatus = "Empty" rate = "mu_birds" />
+		<transition fromStatus = "S_birds_3" toStatus = "Empty" rate = "mu_birds" />
+		<transition fromStatus = "S_birds_4" toStatus = "Empty" rate = "mu_birds" />
+		<transition fromStatus = "S_birds_5" toStatus = "Empty" rate = "mu_birds" />
+
+		<transition fromStatus = "E_humans_1" toStatus = "Empty" rate = "mu_humans" />
+		<transition fromStatus = "E_humans_2" toStatus = "Empty" rate = "mu_humans" />
+		<transition fromStatus = "E_humans_3" toStatus = "Empty" rate = "mu_humans" />
+		<transition fromStatus = "E_humans_4" toStatus = "Empty" rate = "mu_humans" />
+		<transition fromStatus = "E_humans_5" toStatus = "Empty" rate = "mu_humans" />
+
+		<transition fromStatus = "E_birds_1" toStatus = "Empty" rate = "mu_birds" />
+		<transition fromStatus = "E_birds_2" toStatus = "Empty" rate = "mu_birds" />
+		<transition fromStatus = "E_birds_3" toStatus = "Empty" rate = "mu_birds" />
+		<transition fromStatus = "E_birds_4" toStatus = "Empty" rate = "mu_birds" />
+		<transition fromStatus = "E_birds_5" toStatus = "Empty" rate = "mu_birds" />
+
+		<transition fromStatus = "I_humans_1" toStatus = "Empty" rate = "mu_humans" />
+		<transition fromStatus = "I_humans_2" toStatus = "Empty" rate = "mu_humans" />
+		<transition fromStatus = "I_humans_3" toStatus = "Empty" rate = "mu_humans" />
+		<transition fromStatus = "I_humans_4" toStatus = "Empty" rate = "mu_humans" />
+		<transition fromStatus = "I_humans_5" toStatus = "Empty" rate = "mu_humans" />
+
+		<transition fromStatus = "I_birds_1" toStatus = "Empty" rate = "mu_birds" />
+		<transition fromStatus = "I_birds_2" toStatus = "Empty" rate = "mu_birds" />
+		<transition fromStatus = "I_birds_3" toStatus = "Empty" rate = "mu_birds" />
+		<transition fromStatus = "I_birds_4" toStatus = "Empty" rate = "mu_birds" />
+		<transition fromStatus = "I_birds_5" toStatus = "Empty" rate = "mu_birds" />
+
+		<transition fromStatus = "R_humans_1" toStatus = "Empty" rate = "mu_humans" />
+		<transition fromStatus = "R_humans_2" toStatus = "Empty" rate = "mu_humans" />
+		<transition fromStatus = "R_humans_3" toStatus = "Empty" rate = "mu_humans" />
+		<transition fromStatus = "R_humans_4" toStatus = "Empty" rate = "mu_humans" />
+		<transition fromStatus = "R_humans_5" toStatus = "Empty" rate = "mu_humans" />
+
+		<transition fromStatus = "R_birds_1" toStatus = "Empty" rate = "mu_birds" />
+		<transition fromStatus = "R_birds_2" toStatus = "Empty" rate = "mu_birds" />
+		<transition fromStatus = "R_birds_3" toStatus = "Empty" rate = "mu_birds" />
+		<transition fromStatus = "R_birds_4" toStatus = "Empty" rate = "mu_birds" />
+		<transition fromStatus = "R_birds_5" toStatus = "Empty" rate = "mu_birds" />
+
+		<transition fromStatus = "Empty" toStatus = "S_humans_1" rate = "mu_humans" />
+		<transition fromStatus = "Empty" toStatus = "S_humans_2" rate = "mu_humans" />
+		<transition fromStatus = "Empty" toStatus = "S_humans_3" rate = "mu_humans" />
+		<transition fromStatus = "Empty" toStatus = "S_humans_4" rate = "mu_humans" />
+		<transition fromStatus = "Empty" toStatus = "S_humans_5" rate = "mu_humans" />
+
+		<transition fromStatus = "Empty" toStatus = "S_birds_1" rate = "mu_birds" />
+		<transition fromStatus = "Empty" toStatus = "S_birds_2" rate = "mu_birds" />
+		<transition fromStatus = "Empty" toStatus = "S_birds_3" rate = "mu_birds" />
+		<transition fromStatus = "Empty" toStatus = "S_birds_4" rate = "mu_birds" />
+		<transition fromStatus = "Empty" toStatus = "S_birds_5" rate = "mu_birds" />
+
+		<transition fromStatus = "S_humans_1" toStatus = "S_humans_2" rate = "rho_humans" />
+		<transition fromStatus = "S_humans_1" toStatus = "S_humans_4" rate = "rho_humans" />
+		<transition fromStatus = "S_humans_1" toStatus = "S_humans_5" rate = "rho_humans" />
+		<transition fromStatus = "S_humans_2" toStatus = "S_humans_1" rate = "rho_humans" />
+		<transition fromStatus = "S_humans_2" toStatus = "S_humans_3" rate = "rho_humans" />
+		<transition fromStatus = "S_humans_2" toStatus = "S_humans_4" rate = "rho_humans" />
+		<transition fromStatus = "S_humans_2" toStatus = "S_humans_5" rate = "rho_humans" />
+		<transition fromStatus = "S_humans_3" toStatus = "S_humans_2" rate = "rho_humans" />
+		<transition fromStatus = "S_humans_3" toStatus = "S_humans_4" rate = "rho_humans" />
+		<transition fromStatus = "S_humans_4" toStatus = "S_humans_1" rate = "rho_humans" />
+		<transition fromStatus = "S_humans_4" toStatus = "S_humans_2" rate = "rho_humans" />
+		<transition fromStatus = "S_humans_4" toStatus = "S_humans_3" rate = "rho_humans" />
+		<transition fromStatus = "S_humans_5" toStatus = "S_humans_1" rate = "rho_humans" />
+		<transition fromStatus = "S_humans_5" toStatus = "S_humans_2" rate = "rho_humans" />
+
+		<transition fromStatus = "S_birds_1" toStatus = "S_birds_2" rate = "rho_birds" />
+		<transition fromStatus = "S_birds_1" toStatus = "S_birds_4" rate = "rho_birds" />
+		<transition fromStatus = "S_birds_1" toStatus = "S_birds_5" rate = "rho_birds" />
+		<transition fromStatus = "S_birds_2" toStatus = "S_birds_1" rate = "rho_birds" />
+		<transition fromStatus = "S_birds_2" toStatus = "S_birds_3" rate = "rho_birds" />
+		<transition fromStatus = "S_birds_2" toStatus = "S_birds_4" rate = "rho_birds" />
+		<transition fromStatus = "S_birds_2" toStatus = "S_birds_5" rate = "rho_birds" />
+		<transition fromStatus = "S_birds_3" toStatus = "S_birds_2" rate = "rho_birds" />
+		<transition fromStatus = "S_birds_3" toStatus = "S_birds_4" rate = "rho_birds" />
+		<transition fromStatus = "S_birds_4" toStatus = "S_birds_1" rate = "rho_birds" />
+		<transition fromStatus = "S_birds_4" toStatus = "S_birds_2" rate = "rho_birds" />
+		<transition fromStatus = "S_birds_4" toStatus = "S_birds_3" rate = "rho_birds" />
+		<transition fromStatus = "S_birds_5" toStatus = "S_birds_1" rate = "rho_birds" />
+		<transition fromStatus = "S_birds_5" toStatus = "S_birds_2" rate = "rho_birds" />
+
+		<transition fromStatus = "E_humans_1" toStatus = "E_humans_2" rate = "rho_humans" />
+		<transition fromStatus = "E_humans_1" toStatus = "E_humans_4" rate = "rho_humans" />
+		<transition fromStatus = "E_humans_1" toStatus = "E_humans_5" rate = "rho_humans" />
+		<transition fromStatus = "E_humans_2" toStatus = "E_humans_1" rate = "rho_humans" />
+		<transition fromStatus = "E_humans_2" toStatus = "E_humans_3" rate = "rho_humans" />
+		<transition fromStatus = "E_humans_2" toStatus = "E_humans_4" rate = "rho_humans" />
+		<transition fromStatus = "E_humans_2" toStatus = "E_humans_5" rate = "rho_humans" />
+		<transition fromStatus = "E_humans_3" toStatus = "E_humans_2" rate = "rho_humans" />
+		<transition fromStatus = "E_humans_3" toStatus = "E_humans_4" rate = "rho_humans" />
+		<transition fromStatus = "E_humans_4" toStatus = "E_humans_1" rate = "rho_humans" />
+		<transition fromStatus = "E_humans_4" toStatus = "E_humans_2" rate = "rho_humans" />
+		<transition fromStatus = "E_humans_4" toStatus = "E_humans_3" rate = "rho_humans" />
+		<transition fromStatus = "E_humans_5" toStatus = "E_humans_1" rate = "rho_humans" />
+		<transition fromStatus = "E_humans_5" toStatus = "E_humans_2" rate = "rho_humans" />
+
+		<transition fromStatus = "E_birds_1" toStatus = "E_birds_2" rate = "rho_birds" />
+		<transition fromStatus = "E_birds_1" toStatus = "E_birds_4" rate = "rho_birds" />
+		<transition fromStatus = "E_birds_1" toStatus = "E_birds_5" rate = "rho_birds" />
+		<transition fromStatus = "E_birds_2" toStatus = "E_birds_1" rate = "rho_birds" />
+		<transition fromStatus = "E_birds_2" toStatus = "E_birds_3" rate = "rho_birds" />
+		<transition fromStatus = "E_birds_2" toStatus = "E_birds_4" rate = "rho_birds" />
+		<transition fromStatus = "E_birds_2" toStatus = "E_birds_5" rate = "rho_birds" />
+		<transition fromStatus = "E_birds_3" toStatus = "E_birds_2" rate = "rho_birds" />
+		<transition fromStatus = "E_birds_3" toStatus = "E_birds_4" rate = "rho_birds" />
+		<transition fromStatus = "E_birds_4" toStatus = "E_birds_1" rate = "rho_birds" />
+		<transition fromStatus = "E_birds_4" toStatus = "E_birds_2" rate = "rho_birds" />
+		<transition fromStatus = "E_birds_4" toStatus = "E_birds_3" rate = "rho_birds" />
+		<transition fromStatus = "E_birds_5" toStatus = "E_birds_1" rate = "rho_birds" />
+		<transition fromStatus = "E_birds_5" toStatus = "E_birds_2" rate = "rho_birds" />
+
+		<transition fromStatus = "I_humans_1" toStatus = "I_humans_2" rate = "rho_humans" />
+		<transition fromStatus = "I_humans_1" toStatus = "I_humans_4" rate = "rho_humans" />
+		<transition fromStatus = "I_humans_1" toStatus = "I_humans_5" rate = "rho_humans" />
+		<transition fromStatus = "I_humans_2" toStatus = "I_humans_1" rate = "rho_humans" />
+		<transition fromStatus = "I_humans_2" toStatus = "I_humans_3" rate = "rho_humans" />
+		<transition fromStatus = "I_humans_2" toStatus = "I_humans_4" rate = "rho_humans" />
+		<transition fromStatus = "I_humans_2" toStatus = "I_humans_5" rate = "rho_humans" />
+		<transition fromStatus = "I_humans_3" toStatus = "I_humans_2" rate = "rho_humans" />
+		<transition fromStatus = "I_humans_3" toStatus = "I_humans_4" rate = "rho_humans" />
+		<transition fromStatus = "I_humans_4" toStatus = "I_humans_1" rate = "rho_humans" />
+		<transition fromStatus = "I_humans_4" toStatus = "I_humans_2" rate = "rho_humans" />
+		<transition fromStatus = "I_humans_4" toStatus = "I_humans_3" rate = "rho_humans" />
+		<transition fromStatus = "I_humans_5" toStatus = "I_humans_1" rate = "rho_humans" />
+		<transition fromStatus = "I_humans_5" toStatus = "I_humans_2" rate = "rho_humans" />
+
+		<transition fromStatus = "I_birds_1" toStatus = "I_birds_2" rate = "rho_birds" />
+		<transition fromStatus = "I_birds_1" toStatus = "I_birds_4" rate = "rho_birds" />
+		<transition fromStatus = "I_birds_1" toStatus = "I_birds_5" rate = "rho_birds" />
+		<transition fromStatus = "I_birds_2" toStatus = "I_birds_1" rate = "rho_birds" />
+		<transition fromStatus = "I_birds_2" toStatus = "I_birds_3" rate = "rho_birds" />
+		<transition fromStatus = "I_birds_2" toStatus = "I_birds_4" rate = "rho_birds" />
+		<transition fromStatus = "I_birds_2" toStatus = "I_birds_5" rate = "rho_birds" />
+		<transition fromStatus = "I_birds_3" toStatus = "I_birds_2" rate = "rho_birds" />
+		<transition fromStatus = "I_birds_3" toStatus = "I_birds_4" rate = "rho_birds" />
+		<transition fromStatus = "I_birds_4" toStatus = "I_birds_1" rate = "rho_birds" />
+		<transition fromStatus = "I_birds_4" toStatus = "I_birds_2" rate = "rho_birds" />
+		<transition fromStatus = "I_birds_4" toStatus = "I_birds_3" rate = "rho_birds" />
+		<transition fromStatus = "I_birds_5" toStatus = "I_birds_1" rate = "rho_birds" />
+		<transition fromStatus = "I_birds_5" toStatus = "I_birds_2" rate = "rho_birds" />
+
+		<transition fromStatus = "R_humans_1" toStatus = "R_humans_2" rate = "rho_humans" />
+		<transition fromStatus = "R_humans_1" toStatus = "R_humans_4" rate = "rho_humans" />
+		<transition fromStatus = "R_humans_1" toStatus = "R_humans_5" rate = "rho_humans" />
+		<transition fromStatus = "R_humans_2" toStatus = "R_humans_1" rate = "rho_humans" />
+		<transition fromStatus = "R_humans_2" toStatus = "R_humans_3" rate = "rho_humans" />
+		<transition fromStatus = "R_humans_2" toStatus = "R_humans_4" rate = "rho_humans" />
+		<transition fromStatus = "R_humans_2" toStatus = "R_humans_5" rate = "rho_humans" />
+		<transition fromStatus = "R_humans_3" toStatus = "R_humans_2" rate = "rho_humans" />
+		<transition fromStatus = "R_humans_3" toStatus = "R_humans_4" rate = "rho_humans" />
+		<transition fromStatus = "R_humans_4" toStatus = "R_humans_1" rate = "rho_humans" />
+		<transition fromStatus = "R_humans_4" toStatus = "R_humans_2" rate = "rho_humans" />
+		<transition fromStatus = "R_humans_4" toStatus = "R_humans_3" rate = "rho_humans" />
+		<transition fromStatus = "R_humans_5" toStatus = "R_humans_1" rate = "rho_humans" />
+		<transition fromStatus = "R_humans_5" toStatus = "R_humans_2" rate = "rho_humans" />
+
+		<transition fromStatus = "R_birds_1" toStatus = "R_birds_2" rate = "rho_birds" />
+		<transition fromStatus = "R_birds_1" toStatus = "R_birds_4" rate = "rho_birds" />
+		<transition fromStatus = "R_birds_1" toStatus = "R_birds_5" rate = "rho_birds" />
+		<transition fromStatus = "R_birds_2" toStatus = "R_birds_1" rate = "rho_birds" />
+		<transition fromStatus = "R_birds_2" toStatus = "R_birds_3" rate = "rho_birds" />
+		<transition fromStatus = "R_birds_2" toStatus = "R_birds_4" rate = "rho_birds" />
+		<transition fromStatus = "R_birds_2" toStatus = "R_birds_5" rate = "rho_birds" />
+		<transition fromStatus = "R_birds_3" toStatus = "R_birds_2" rate = "rho_birds" />
+		<transition fromStatus = "R_birds_3" toStatus = "R_birds_4" rate = "rho_birds" />
+		<transition fromStatus = "R_birds_4" toStatus = "R_birds_1" rate = "rho_birds" />
+		<transition fromStatus = "R_birds_4" toStatus = "R_birds_2" rate = "rho_birds" />
+		<transition fromStatus = "R_birds_4" toStatus = "R_birds_3" rate = "rho_birds" />
+		<transition fromStatus = "R_birds_5" toStatus = "R_birds_1" rate = "rho_birds" />
+		<transition fromStatus = "R_birds_5" toStatus = "R_birds_2" rate = "rho_birds" />
+	</KendrickModel>
+</xmi:XMI>

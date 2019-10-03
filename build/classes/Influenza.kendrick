@@ -1,0 +1,56 @@
+KendrickModel SEIRS
+    attribute: #(status -> S E I R);
+    parameters: #(beta lambda gamma mu sigma nu);
+    lambda: #(beta*I/N);
+    equations: #(
+         S:t=mu*N - beta*S*I/N - mu*S + nu*R.
+         E:t=beta*S*I/N - sigma*E - mu*E.
+         I:t=sigma*E - gamma*I - mu*I.
+         R:t=gamma*I - mu*R - nu*R.).
+
+KendrickModel MultiSpecies
+    attribute: #(species -> humans birds).
+
+KendrickModel Spatial
+    attribute: #(zone -> 1 2 3 4 5)
+    parameters: #(rho);
+    connectionMatrix: #(
+      #(0 1 0 1 1)
+      #(1 0 1 1 1)
+      #(0 1 0 1 0)
+      #(1 1 1 0 0)
+      #(1 1 0 0 0)
+    );
+    transitionRate: #(rho).
+
+Composition Influenza
+    model: 'SEIRS';
+    model: 'MultiSpecies';
+    model: 'Spatial'.
+
+Scenario Scr1
+    on: 'Influenza';
+    populationSize: 27500;
+    mu_species: #(0.000365 0.00137);
+    beta_species: #(#(0 0.21) #(0 0.42));
+    gamma_species: #(0.25 0.233);
+    sigma_species: #(0.5 0.67);
+    nu: 0.00274;
+    rho_species: #(0.03 0.1);
+    lambda: #(beta*I_zone/N sum);
+    N: #(species_zone);
+    S_species_zone: #(#(500 500 500 500 500) #(4990 5000 5000 5000 5000));
+    I_species_zone: #(#(0 0 0 0 0) #(10 0 0 0 0)).
+
+Simulation InfluenzaSim rungeKutta
+    scenario: 'Scr1';
+    from: 0;
+    to: 550;
+    step: 1.
+
+Visualization InfluenzaViz diagram
+    for: 'InfluenzaSim';
+    data: #(I_species);
+    legendTitle: 'Infectious';
+    legends: #('humans' 'birds');
+    xLabel: 'Time (days)'.

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="Kendrick">
+	<KendrickModel name = "Measles">
+		<attribute name = "status" values = "S, E, I, R" />
+		<parameter name = "beta" value = "0.0000214" />
+		<parameter name = "gamma" value = "0.143" />
+		<parameter name = "mu" value = "0.0000351" />
+		<parameter name = "sigma" value = "0.125" />
+		<parameter name = "lambda" value = "beta*I" />
+		<parameter name = "N" value = "100000" />
+		<compartment name = "S" value = "99999" />
+		<compartment name = "I" value = "1" />
+		<compartment name = "E" value = "0" />
+		<compartment name = "R" value = "0" />
+		<transition fromStatus = "S" toStatus = "E" rate = "lambda" />
+		<transition fromStatus = "E" toStatus = "I" rate = "sigma" />
+		<transition fromStatus = "I" toStatus = "R" rate = "gamma" />
+		<transition fromStatus = "Empty" toStatus = "S" rate = "mu" />
+		<transition fromStatus = "S" toStatus = "Empty" rate = "mu" />
+		<transition fromStatus = "E" toStatus = "Empty" rate = "mu" />
+		<transition fromStatus = "I" toStatus = "Empty" rate = "mu" />
+		<transition fromStatus = "R" toStatus = "Empty" rate = "mu" />
+	</KendrickModel>
+</xmi:XMI>

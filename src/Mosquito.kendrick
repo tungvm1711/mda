@@ -1,0 +1,43 @@
+KendrickModel SIR
+  attribute: #(status -> S I R);
+  parameters: #(beta lambda gamma mu);
+  transitions: #(
+    S -- lambda --> I.
+    I -- gamma --> R.
+    status -- mu --> Empty.
+    Empty -- mu --> S.).
+
+KendrickModel MultiSpecies
+  attribute: #(species -> mosquito reservoir1 reservoir2).
+
+Composition Mosquito
+  model: 'MultiSpecies';
+  model: 'SIR'.
+
+Scenario MosquitoPopulation
+  on: 'Mosquito';
+  populationSize: 13000;
+  S_species: #(9999 1000 2000);
+  I_species: #(1 0 0).
+
+Scenario MosquitoParameters
+  on: 'Mosquito';
+  mu_species: #(12.17 0.05 0.05);
+  gamma: 52;
+  beta_species: #(
+    #(0 0.02 0.02)
+    #(0.02 0 0)
+    #(0.02 0 0));
+  lambda: #(beta*I/N sum);	
+  N: #(species).
+
+Simulation MosquitoRK rungeKutta
+  scenarios: #(MosquitoPopulation MosquitoParameters);
+  from: 0;
+  to: 500;
+  step: 1.
+
+Visualization MosquitoViz diagram
+  for: 'MosquitoRK';
+  xLabel: 'Time (days)';
+  exportToPng.

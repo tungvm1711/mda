@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="Kendrick">
+	<KendrickModel name = "Mosquito">
+		<attribute name = "status" values = "S, I, R" />
+		<attribute name = "species" values = "mosquito, reservoir1, reservoir2" />
+		<parameter name = "beta_mosquito_mosquito" value = "0" />
+		<parameter name = "beta_mosquito_reservoir1" value = "0.02" />
+		<parameter name = "beta_mosquito_reservoir2" value = "0.02" />
+		<parameter name = "beta_reservoir1_mosquito" value = "0.02" />
+		<parameter name = "beta_reservoir2_mosquito" value = "0.02" />
+		<parameter name = "beta_reservoir1_reservoir2" value = "0" />
+		<parameter name = "beta_reservoir2_reservoir1" value = "0" />
+		<parameter name = "beta_reservoir1_reservoir1" value = "0" />
+		<parameter name = "beta_reservoir2_reservoir2" value = "0" />
+		<parameter name = "gamma" value = "52" />
+		<parameter name = "mu_mosquito" value = "12.17" />
+		<parameter name = "mu_reservoir1" value = "0.05" />
+		<parameter name = "mu_reservoir2" value = "0.05" />
+		<parameter name = "lambda_mosquito"
+			value = "beta_mosquito_mosquito*I_mosquito/N_mosquito +
+				beta_mosquito_reservoir1*I_reservoir1/N_reservoir1 +
+				beta_mosquito_reservoir2*I_reservoir2/N_reservoir2" />
+		<parameter name = "lambda_reservoir1"
+			value = "beta_reservoir1_mosquito*I_mosquito/N_mosquito +
+				beta_reservoir1_reservoir1*I_reservoir1/N_reservoir1 +
+				beta_reservoir1_reservoir2*I_reservoir2/N_reservoir2" />
+		<parameter name = "lambda_reservoir2"
+			value = "beta_reservoir2_mosquito*I_mosquito/N_mosquito +
+				beta_reservoir2_reservoir1*I_reservoir1/N_reservoir1 +
+				beta_reservoir2_reservoir2*I_reservoir2/N_reservoir2" />
+		<parameter name = "N_mosquito" value = "10000" />
+		<parameter name = "N_reservoir1" value = "1000" />
+		<parameter name = "N_reservoir2" value = "2000" />
+                
+		<compartment name = "S_mosquito" value = "9999" />
+		<compartment name = "I_mosquito" value = "1" />
+		<compartment name = "R_mosquito" value = "0" />
+		<compartment name = "S_reservoir1" value = "1000" />
+		<compartment name = "I_reservoir1" value = "0" />
+		<compartment name = "R_reservoir1" value = "0" />
+		<compartment name = "S_reservoir2" value = "2000" />
+		<compartment name = "I_reservoir2" value = "0" />
+		<compartment name = "R_reservoir2" value = "0" />
+                
+		<transition fromStatus = "S_mosquito" toStatus = "I_mosquito" rate = "lambda_mosquito" />
+		<transition fromStatus = "S_reservoir1" toStatus = "I_reservoir1" rate = "lambda_reservoir1" />
+		<transition fromStatus = "S_reservoir2" toStatus = "I_reservoir2" rate = "lambda_reservoir2" />
+		<transition fromStatus = "I_mosquito" toStatus = "R_mosquito" rate = "gamma" />
+		<transition fromStatus = "I_reservoir1" toStatus = "R_reservoir1" rate = "gamma" />
+		<transition fromStatus = "I_reservoir2" toStatus = "R_reservoir2" rate = "gamma" />
+		<transition fromStatus = "Empty" toStatus = "S_mosquito" rate = "mu_mosquito" />
+		<transition fromStatus = "Empty" toStatus = "S_reservoir1" rate = "mu_reservoir1" />
+		<transition fromStatus = "Empty" toStatus = "S_reservoir2" rate = "mu_reservoir2" />
+		<transition fromStatus = "S_mosquito" toStatus = "Empty" rate = "mu_mosquito" />
+		<transition fromStatus = "S_reservoir1" toStatus = "Empty" rate = "mu_reservoir1" />
+		<transition fromStatus = "S_reservoir2" toStatus = "Empty" rate = "mu_reservoir2" />
+		<transition fromStatus = "I_mosquito" toStatus = "Empty" rate = "mu_mosquito" />
+		<transition fromStatus = "I_reservoir1" toStatus = "Empty" rate = "mu_reservoir1" />
+		<transition fromStatus = "I_reservoir2" toStatus = "Empty" rate = "mu_reservoir2" />
+		<transition fromStatus = "R_mosquito" toStatus = "Empty" rate = "mu_mosquito" />
+		<transition fromStatus = "R_reservoir1" toStatus = "Empty" rate = "mu_reservoir1" />
+		<transition fromStatus = "R_reservoir2" toStatus = "Empty" rate = "mu_reservoir2" />
+	</KendrickModel>
+</xmi:XMI>
