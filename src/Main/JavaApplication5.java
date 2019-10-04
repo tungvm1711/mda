@@ -5,8 +5,11 @@
  */
 package Main;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -18,12 +21,41 @@ public class JavaApplication5 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws FileNotFoundException {
+    public static final String xmlFilePath = "src/xmlfile.xml";
+    public static final String PARAGRAPH_SPLIT_REGEX = "\\s*\\r?\\n\\s*\\r?\\n";
+
+    public static void main(String[] args) throws FileNotFoundException, IOException {
         // TODO code application logic here
-        File file = new File("src/Mosquito.kendrick"); 
-        Scanner sc = new Scanner(file); 
-        sc.useDelimiter("\\Z"); 
-        System.out.println("hihi"); 
+        //src/Mosquito.kendrick
+        System.out.println("hihi");
+
+        String currentLine;
+
+        final BufferedReader bf = new BufferedReader(new FileReader("src/Mosquito.kendrick"));
+
+        currentLine = bf.readLine();
+
+        final StringBuilder stringBuilder = new StringBuilder();
+        while (currentLine != null) {
+
+            stringBuilder.append(currentLine);
+            stringBuilder.append(System.lineSeparator());
+            currentLine = bf.readLine();
+        }
+
+        String[] paragraph = new String[stringBuilder.length()];
+
+        if (stringBuilder != null) {
+
+            final String value = stringBuilder.toString();
+            paragraph = value.split(PARAGRAPH_SPLIT_REGEX);
+        }
+
+        for (final String s : paragraph) {
+            String firstword = s.contains(" ") ? s.split(" ")[0] : s;
+            System.out.println(firstword);
+            System.out.println(s);
+        }
     }
-    
+
 }
