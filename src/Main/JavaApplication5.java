@@ -53,8 +53,29 @@ public class JavaApplication5 {
 
         for (final String s : paragraph) {
             String firstword = s.contains(" ") ? s.split(" ")[0] : s;
-            System.out.println(firstword);
-            System.out.println(s);
+            switch (firstword) {
+                case "KendrickModel":
+                    Scanner scanner = new Scanner(s);
+                    scanner.useDelimiter(";");
+                    scanner.nextLine();
+                    while (scanner.hasNext()) {
+                        String token = scanner.next();
+                        Scanner reader = new Scanner(token);
+                        reader.useDelimiter(": #\\(*");
+                        System.out.println(reader.next());
+                        System.out.println(reader.next());  
+                        System.out.println("hihi");
+                    }
+                    scanner.close();
+//                        System.out.println(details[0]);
+                    break;
+                case "Composition":
+                    //System.out.println("hehe");
+                    break;
+                case "Scenario":
+                    //System.out.println("haha");
+                    break;
+            }
         }
     }
 
