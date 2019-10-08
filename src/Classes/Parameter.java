@@ -10,8 +10,24 @@ package Classes;
  * @author em tung
  */
 public class Parameter {
+
     private String name;
     private String value;
+
+    public Parameter(String n, String v) {
+        name = n;
+    }
+
+    public Parameter(String n) {
+        name = n;
+        value = "0";
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Name: %s\r\nValue: %s",
+                name, value);
+    }
 
     public String getName() {
         return name;

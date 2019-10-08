@@ -5,6 +5,7 @@
  */
 package Main;
 
+import Classes.KendrickModel;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -55,19 +56,8 @@ public class JavaApplication5 {
             String firstword = s.contains(" ") ? s.split(" ")[0] : s;
             switch (firstword) {
                 case "KendrickModel":
-                    Scanner scanner = new Scanner(s);
-                    scanner.useDelimiter(";");
-                    scanner.nextLine();
-                    while (scanner.hasNext()) {
-                        String token = scanner.next();
-                        Scanner reader = new Scanner(token);
-                        reader.useDelimiter(": #\\(*");
-                        System.out.println(reader.next());
-                        System.out.println(reader.next());  
-                        System.out.println("hihi");
-                    }
-                    scanner.close();
-//                        System.out.println(details[0]);
+                    KendrickModel kendrickModel = new KendrickModel();
+                    kendrickModel.handleValues(s);
                     break;
                 case "Composition":
                     //System.out.println("hehe");

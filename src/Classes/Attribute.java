@@ -5,27 +5,34 @@
  */
 package Classes;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Tung Minh Vu
  */
 public class Attribute {
-        private String name;
-    private String value;
+
+    private String name;
+    private List<String> values;
+
     public Attribute(String n, String v) {
         name = n;
-        value = v;
-    }
-
-    public Attribute() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String[] newAttribute = v.split(" ");
+        values = new ArrayList<>();
+        for (int i = 0; i < newAttribute.length; i++) {
+            values.add(newAttribute[i]);
+        }
     }
 
     @Override
     public String toString() {
-        return String.format("Name: %s\r\nValue: %s", 
-                name, value);
+        return String.format("Name: %s\r\nValue: %s",
+                name, values);
     }
+
+
 
     public String getName() {
         return name;
@@ -35,11 +42,11 @@ public class Attribute {
         this.name = name;
     }
 
-    public String getValue() {
-        return value;
+    public List<String> getValue() {
+        return values;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setValue(List<String> value) {
+        this.values = values;
     }
 }
