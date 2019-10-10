@@ -13,7 +13,16 @@ public class Transition {
     private String fromStatus;
     private String toStatus;
     private String rate;
-
+    public Transition(String fromStatus, String toStatus, String rate) {
+        this.fromStatus = fromStatus;
+        this.toStatus = toStatus;
+        this.rate = rate;
+    }
+    @Override
+    public String toString() {
+        return String.format("fromStatus: %s, ToStatus: %s rate: %s", 
+                fromStatus, toStatus, rate);
+    }
     public String getFromStatus() {
         return fromStatus;
     }
